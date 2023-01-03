@@ -19,5 +19,3 @@ return (
 </div>
 )
 }
- 
-// Path: pages\TextArea\index.tsx
