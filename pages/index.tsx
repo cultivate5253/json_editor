@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
-import TextArea from './TextArea'
-import ControlArea from './ControlArea'
-import VisualizedData from './VisualizedData'
+import{ TextArea } from '../Components/TextArea/'
+import { ControlArea } from '../Components/ControlArea'
+import { VisualizedData } from '../Components/VisualizedData'
 
+
+interface TextAreaProps{
+  json: string;
+  onTextChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+}
 const App: React.FC = () => {
   const [json, setJson] = useState('')
 
-  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setJson(e.target.value)
-  }
+  const handleTextUpdate = (json: any) => {
+    setJson(json)
+  };
 
   const handleClearClick = () => {
     setJson('')
@@ -17,8 +22,7 @@ const App: React.FC = () => {
   return (
     <div>
       <TextArea
-        json={json}
-        onTextChange={handleTextChange}
+        onUpdate={handleTextUpdate}
       />
       <ControlArea
         onClearClick={handleClearClick}

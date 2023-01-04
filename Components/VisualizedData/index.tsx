@@ -1,14 +1,31 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
+import React from 'react'
 
-const ControlArea: React.FC = () => {
-  return (
-    <>
-      <Button onClick={() => parseJson(jsonData)}>Parse JSON</Button>
-      <Button onClick={() => navigator.clipboard.writeText(jsonData)}>Copy</Button>
-      <Button onClick={() => setJsonData('')}>Clear</Button>
-    </>
-  );
-};
+interface VisualizedDataProps {
+json: object | string
+}
 
-export default ControlArea;
+export const VisualizedData: React.FC<VisualizedDataProps> = ({ json }) => {
+// JSONの型を判断する
+if (typeof json === 'object') {
+return (
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+{Object.entries(json).map(([key, value]) => (
+<tr key={key}>
+<td>{key}</td>
+<td>{value}</td>
+</tr>
+))}
+</tbody>
+</table>
+)
+} else {
+return <div>{json}</div>
+}
+}

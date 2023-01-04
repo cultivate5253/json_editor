@@ -8,5 +8,6 @@ export const parseJson = (json: string) => {
   }
 export const setJsonData = (json: string) =>{
     localStorage.setItem("json", json)
+    return parseJson(json)
 }
   
