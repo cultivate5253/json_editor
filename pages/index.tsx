@@ -17,8 +17,8 @@ const App: React.FC = () => {
   const handleClearClick = () => {
     setJson("");
   };
-
-  return (
+  //onUpdate={handleTextUpdate}で,TextAreaのonUpdateが実行されるとhandleTextUpdate()関数が実行される
+    return (
     <div>
       <TextArea onUpdate={handleTextUpdate} />
       <ControlArea onClearClick={handleClearClick} />

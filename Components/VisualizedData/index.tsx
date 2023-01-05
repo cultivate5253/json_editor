@@ -16,7 +16,9 @@ export const VisualizedData: React.FC<VisualizedDataProps> = ({ json }) => {
           </tr>
         </thead>
         <tbody>
-          {Object.entries(json).map(([key, value]) => (
+          {Object.entries(json).map(([key, value]) => (   // Object.entries()を使って、jsonを配列に変換
+          //Object.entries()は、オブジェクトの各プロパティを、[key, value]の形式の配列に変換する
+
             <tr key={key}>
               <td>{key}</td>
               <td>{value}</td>
