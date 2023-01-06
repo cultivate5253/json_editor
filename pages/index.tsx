@@ -18,11 +18,12 @@ const App: React.FC = () => {
     setJson("");
   };
   //onUpdate={handleTextUpdate}で,TextAreaのonUpdateが実行されるとhandleTextUpdate()関数が実行される
-    return (
+  return (
     <div>
       <TextArea onUpdate={handleTextUpdate} />
-      <ControlArea onClearClick={handleClearClick} />
-      <VisualizedData json={json} />
+      <ControlArea onClearClick={handleClearClick} inputJson={json} />
+      {/* JSON文字列が空でない場合にのみ、VisualizedDataコンポーネントを表示する */}
+      {json !== "" && <VisualizedData json={json} />}
     </div>
   );
 };
