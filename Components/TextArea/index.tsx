@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-
 // #TextAreaPropsインターフェイスを定義（onUpdate()関数を持つ）
 interface TextAreaProps {
   onUpdate: (json: any) => void;
@@ -22,12 +21,12 @@ export const TextArea: React.FC<TextAreaProps> = ({ onUpdate }) => {
   const handleBlur = () => {
     setIsFocused(false);
   };
-// # useEffect()を使って、isFocusedがfalseの時にonUpdate()関数を実行
+  // # useEffect()を使って、isFocusedがfalseの時にonUpdate()関数を実行
   useEffect(() => {
     if (!isFocused) {
       onUpdate(json);
     }
-  }, [isFocused, json]);
+  }, [isFocused]);
 
   return (
     <div>
