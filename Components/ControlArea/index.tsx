@@ -12,6 +12,16 @@ export const ControlArea: React.FC<ControlAreaProps> = ({
   onClearClick,
   inputJson,
 }) => {
+  // Parse JSONをクリックすると実行される関数
+  const handleParseJsonClick = () => {
+    console.log("handleParseJsonClick called");
+    // JSON文字列をパースして、JSONオブジェクトを取得する
+    const parsedJson = parseJson(inputJson);
+    console.log(`parsedJson: ${parsedJson}`);
+    // parsedJsonをsetJsonData()関数に渡す
+    setJsonData(parsedJson);
+  };
+
   return (
     <div>
       <Button onClick={() => setJsonData(parseJson(inputJson))}>

@@ -11,7 +11,7 @@ export const VisualizedData: React.FC<VisualizedDataProps> = ({ json }) => {
     // inputJsonをパースして、JSONオブジェクトを取得する
     const parsedJson = JSON.parse(json);
     // JSONの型を判断する
-    if (typeof parsedJson === "object") {
+    if (Object.prototype.toString.call(parsedJson) === "[object Object]") {
       return (
         <table>
           <thead>
